@@ -1,7 +1,9 @@
 library dashboard;
 
-import 'package:dashboard/app/presentation/pages/dashboard_page.dart';
+import 'package:dashboard/app/cubit/post/post_cubit.dart';
+import 'package:dashboard/app/pages/dashboard_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() => runApp(const DashboardApp());
 
@@ -10,13 +12,20 @@ class DashboardApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Dashboard',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => PostCubit(),
+        ),
+      ],
+      child: MaterialApp(
+        title: 'Dashboard',
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        ),
+        home: const DashboardPage(),
       ),
-      home: const DashboardPage(),
     );
   }
 }
