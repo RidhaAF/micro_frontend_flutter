@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:micro_frontend_flutter/app/modules/dashboard/lib/main.dart';
-import 'package:micro_frontend_flutter/app/modules/profile/lib/main.dart';
+import 'package:micro_frontend_flutter/app/modules/dashboard/lib/dashboard.dart';
+import 'package:micro_frontend_flutter/app/modules/profile/lib/profile.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});

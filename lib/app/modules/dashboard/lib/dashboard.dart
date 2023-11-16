@@ -1,3 +1,5 @@
+library dashboard;
+
 import 'package:dashboard/app/presentation/pages/dashboard_page.dart';
 import 'package:flutter/material.dart';
 
@@ -13,7 +15,6 @@ class DashboardApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
       ),
       home: const DashboardPage(),
     );

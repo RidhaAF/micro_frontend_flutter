@@ -1,3 +1,5 @@
+library profile;
+
 import 'package:flutter/material.dart';
 import 'package:profile/app/presentation/pages/profile_page.dart';
 
@@ -13,7 +15,6 @@ class ProfileApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
       ),
       home: const ProfilePage(),
     );
