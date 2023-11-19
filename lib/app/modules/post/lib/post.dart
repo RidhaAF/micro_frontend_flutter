@@ -1,7 +1,8 @@
 library post;
 
 import 'package:post/app/cubit/post/post_cubit.dart';
-import 'package:post/app/pages/post_page.dart';
+import 'package:post/app/pages/post/post_page.dart';
+import 'package:post/app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -28,6 +29,7 @@ class PostApp extends StatelessWidget {
           useMaterial3: true,
         ),
         home: const PostPage(),
+        routes: AppPages.pages,
       ),
     );
   }

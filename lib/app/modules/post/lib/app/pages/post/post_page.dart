@@ -1,11 +1,11 @@
-import 'package:post/app/cubit/post/post_cubit.dart';
-import 'package:post/app/models/post_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:micro_frontend_flutter/app/utils/constants/app_constants.dart';
 import 'package:micro_frontend_flutter/app/widgets/default_loading_indicator.dart';
 import 'package:micro_frontend_flutter/app/widgets/default_refresh_indicator.dart';
 import 'package:micro_frontend_flutter/app/widgets/error_message.dart';
+import 'package:post/app/cubit/post/post_cubit.dart';
+import 'package:post/app/models/post_model.dart';
+import 'package:post/app/widgets/post_list_tile.dart';
 
 class PostPage extends StatefulWidget {
   const PostPage({super.key});
@@ -58,7 +58,6 @@ class _PostPageState extends State<PostPage> {
     final int postsLength = posts.length;
 
     return ListView.builder(
-      padding: const EdgeInsets.all(AppConstants.defaultMargin),
       itemCount: postsLength,
       itemBuilder: (context, i) {
         final PostModel post = posts[i];
@@ -69,18 +68,15 @@ class _PostPageState extends State<PostPage> {
   }
 
   Widget _postListTile(PostModel post) {
-    return ListTile(
-      title: Text(
-        post.title ?? 'Title',
-        style: const TextStyle(
-          fontWeight: AppConstants.bold,
-        ),
-      ),
-      subtitle: Text(post.body ?? 'Description'),
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(AppConstants.defaultRadius),
-      ),
-      contentPadding: EdgeInsets.zero,
+    return PostListTile(
+      post: post,
+      onTap: () {
+        Navigator.pushNamed(
+          context,
+          '/post/:id',
+          arguments: post,
+        );
+      },
     );
   }
 }

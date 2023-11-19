@@ -25,10 +25,12 @@ class _MainAppState extends State<MainApp> {
           BottomNavigationBarItem(
             icon: Icon(Icons.message_rounded),
             label: 'Post',
+            tooltip: 'Post',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person_rounded),
             label: 'Profile',
+            tooltip: 'Profile',
           ),
         ],
         currentIndex: _selectedIndex,
