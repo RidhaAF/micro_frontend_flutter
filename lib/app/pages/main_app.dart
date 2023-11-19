@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:micro_frontend_flutter/app/modules/dashboard/lib/dashboard.dart';
 import 'package:micro_frontend_flutter/app/modules/profile/lib/profile.dart';
 
-class MainPage extends StatefulWidget {
-  const MainPage({super.key});
+class MainApp extends StatefulWidget {
+  const MainApp({super.key});
 
   @override
-  State<MainPage> createState() => _MainPageState();
+  State<MainApp> createState() => _MainAppState();
 }
 
-class _MainPageState extends State<MainPage> {
+class _MainAppState extends State<MainApp> {
   int _selectedIndex = 0;
   final List _pages = [
     const DashboardApp(),

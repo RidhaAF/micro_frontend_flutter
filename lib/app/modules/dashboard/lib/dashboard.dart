@@ -5,7 +5,9 @@ import 'package:dashboard/app/pages/dashboard_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-void main() => runApp(const DashboardApp());
+void main() {
+  runApp(const DashboardApp());
+}
 
 class DashboardApp extends StatelessWidget {
   const DashboardApp({super.key});
@@ -14,7 +16,7 @@ class DashboardApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(
+        BlocProvider<PostCubit>(
           create: (context) => PostCubit(),
         ),
       ],
@@ -23,6 +25,7 @@ class DashboardApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+          useMaterial3: true,
         ),
         home: const DashboardPage(),
       ),

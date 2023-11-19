@@ -5,7 +5,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:profile/app/cubit/profile/profile_cubit.dart';
 import 'package:profile/app/pages/profile_page.dart';
 
-void main() => runApp(const ProfileApp());
+void main() {
+  runApp(const ProfileApp());
+}
 
 class ProfileApp extends StatelessWidget {
   const ProfileApp({super.key});
@@ -14,7 +16,7 @@ class ProfileApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(
+        BlocProvider<ProfileCubit>(
           create: (context) => ProfileCubit(),
         ),
       ],
@@ -23,6 +25,7 @@ class ProfileApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+          useMaterial3: true,
         ),
         home: const ProfilePage(),
       ),

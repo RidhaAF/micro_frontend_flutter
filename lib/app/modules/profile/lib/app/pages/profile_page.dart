@@ -20,7 +20,6 @@ class _ProfilePageState extends State<ProfilePage> {
   }
 
   _onRefresh() async {
-    await Future.delayed(const Duration(seconds: 1));
     _getProfile();
   }
 
@@ -56,6 +55,7 @@ class _ProfilePageState extends State<ProfilePage> {
             padding: const EdgeInsets.all(AppConstants.defaultMargin),
             children: [
               _profilePhoto(picture!),
+              const SizedBox(height: AppConstants.defaultMargin),
               _profileName(name!),
               _profileEmail(email!),
             ],
@@ -90,6 +90,7 @@ class _ProfilePageState extends State<ProfilePage> {
       fullname,
       style: const TextStyle(
         fontSize: 20,
+        fontWeight: FontWeight.bold,
       ),
       textAlign: TextAlign.center,
     );

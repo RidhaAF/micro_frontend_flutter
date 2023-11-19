@@ -20,7 +20,6 @@ class _DashboardPageState extends State<DashboardPage> {
   }
 
   _onRefresh() async {
-    await Future.delayed(const Duration(seconds: 1));
     _getPosts();
   }
 
