@@ -33,6 +33,8 @@ dependencies:
     sdk: flutter
   post:
     path: lib/app/modules/post
+  product:
+    path: lib/app/modules/product
   profile:
     path: lib/app/modules/profile
 

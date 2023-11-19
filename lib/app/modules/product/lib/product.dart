@@ -1,34 +1,34 @@
-library post;
+library product;
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:post/app/cubit/post/post_cubit.dart';
-import 'package:post/app/pages/post/post_page.dart';
-import 'package:post/app/routes/app_pages.dart';
+import 'package:product/app/cubit/product/product_cubit.dart';
+import 'package:product/app/pages/product/product_page.dart';
+import 'package:product/app/routes/app_pages.dart';
 
 void main() {
-  runApp(const PostApp());
+  runApp(const ProductApp());
 }
 
-class PostApp extends StatelessWidget {
-  const PostApp({super.key});
+class ProductApp extends StatelessWidget {
+  const ProductApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider<PostCubit>(
-          create: (context) => PostCubit(),
+        BlocProvider<ProductCubit>(
+          create: (context) => ProductCubit(),
         ),
       ],
       child: MaterialApp(
-        title: 'Post',
+        title: 'Product',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home: const PostPage(),
+        home: const ProductPage(),
         routes: AppPages.pages,
       ),
     );

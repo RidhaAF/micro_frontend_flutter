@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:micro_frontend_flutter/app/modules/post/lib/post.dart';
+import 'package:micro_frontend_flutter/app/modules/product/lib/product.dart';
 import 'package:micro_frontend_flutter/app/modules/profile/lib/profile.dart';
 
 class MainApp extends StatefulWidget {
@@ -13,6 +14,7 @@ class _MainAppState extends State<MainApp> {
   int _selectedIndex = 0;
   final List _pages = [
     const PostApp(),
+    const ProductApp(),
     const ProfileApp(),
   ];
 
@@ -26,6 +28,11 @@ class _MainAppState extends State<MainApp> {
             icon: Icon(Icons.message_rounded),
             label: 'Post',
             tooltip: 'Post',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.shopping_bag_rounded),
+            label: 'Product',
+            tooltip: 'Product',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person_rounded),
