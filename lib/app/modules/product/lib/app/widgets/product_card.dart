@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:micro_frontend_flutter/app/modules/product/lib/app/widgets/product_image.dart';
-import 'package:micro_frontend_flutter/app/modules/product/lib/app/widgets/product_rating.dart';
 import 'package:micro_frontend_flutter/app/utils/constants/app_constants.dart';
 import 'package:product/app/models/product_model.dart';
+import 'package:product/app/widgets/product_image.dart';
+import 'package:product/app/widgets/product_rating.dart';
 
 class ProductCard extends StatelessWidget {
   final Product? product;
