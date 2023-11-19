@@ -1,4 +1,4 @@
 class AppRoutes {
-  static const String post = '/post';
-  static const String postDetail = '/post/:id';
+  static const String post = '/posts';
+  static const String postDetail = '/posts/:id';
 }

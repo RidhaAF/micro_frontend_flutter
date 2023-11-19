@@ -162,6 +162,13 @@ packages:
       relative: true
     source: path
     version: "0.0.1"
+  product:
+    dependency: "direct main"
+    description:
+      path: "lib/app/modules/product"
+      relative: true
+    source: path
+    version: "0.0.1"
   profile:
     dependency: "direct main"
     description:

@@ -57,13 +57,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.6"
-  dashboard:
-    dependency: transitive
-    description:
-      path: "../dashboard"
-      relative: true
-    source: path
-    version: "0.0.1"
   dio:
     dependency: "direct main"
     description:
@@ -169,6 +162,13 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.8.3"
+  post:
+    dependency: transitive
+    description:
+      path: "../post"
+      relative: true
+    source: path
+    version: "0.0.1"
   provider:
     dependency: transitive
     description:

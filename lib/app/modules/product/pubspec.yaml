@@ -1,7 +1,7 @@
-name: profile
-description: A new Flutter package project.
+name: product
+description: "A new Flutter package project."
 version: 0.0.1
-homepage: null
+homepage:
 publish_to: "none"
 
 environment:
