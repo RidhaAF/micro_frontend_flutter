@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:micro_frontend_flutter/app/modules/dashboard/lib/dashboard.dart';
+import 'package:micro_frontend_flutter/app/modules/post/lib/post.dart';
 import 'package:micro_frontend_flutter/app/modules/profile/lib/profile.dart';
 
 class MainApp extends StatefulWidget {
@@ -12,7 +12,7 @@ class MainApp extends StatefulWidget {
 class _MainAppState extends State<MainApp> {
   int _selectedIndex = 0;
   final List _pages = [
-    const DashboardApp(),
+    const PostApp(),
     const ProfileApp(),
   ];
 
@@ -23,12 +23,14 @@ class _MainAppState extends State<MainApp> {
       bottomNavigationBar: BottomNavigationBar(
         items: const [
           BottomNavigationBarItem(
-            icon: Icon(Icons.dashboard),
-            label: 'Dashboard',
+            icon: Icon(Icons.message_rounded),
+            label: 'Post',
+            tooltip: 'Post',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.person),
+            icon: Icon(Icons.person_rounded),
             label: 'Profile',
+            tooltip: 'Profile',
           ),
         ],
         currentIndex: _selectedIndex,

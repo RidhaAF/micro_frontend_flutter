@@ -1,16 +1,17 @@
-library dashboard;
+library post;
 
-import 'package:dashboard/app/cubit/post/post_cubit.dart';
-import 'package:dashboard/app/pages/dashboard_page.dart';
+import 'package:post/app/cubit/post/post_cubit.dart';
+import 'package:post/app/pages/post/post_page.dart';
+import 'package:post/app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() {
-  runApp(const DashboardApp());
+  runApp(const PostApp());
 }
 
-class DashboardApp extends StatelessWidget {
-  const DashboardApp({super.key});
+class PostApp extends StatelessWidget {
+  const PostApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -21,13 +22,14 @@ class DashboardApp extends StatelessWidget {
         ),
       ],
       child: MaterialApp(
-        title: 'Dashboard',
+        title: 'Post',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home: const DashboardPage(),
+        home: const PostPage(),
+        routes: AppPages.pages,
       ),
     );
   }

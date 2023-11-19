@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
-import 'package:dashboard/app/models/post_model.dart';
-import 'package:dashboard/app/services/post_service.dart';
+import 'package:post/app/models/post_model.dart';
+import 'package:post/app/services/post_service.dart';
 import 'package:meta/meta.dart';
 
 part 'post_state.dart';

@@ -29,10 +29,10 @@ environment:
 # versions available, run `flutter pub outdated`.
 dependencies:
   cupertino_icons: ^1.0.2
-  dashboard:
-    path: lib/app/modules/dashboard
   flutter:
     sdk: flutter
+  post:
+    path: lib/app/modules/post
   profile:
     path: lib/app/modules/profile
 

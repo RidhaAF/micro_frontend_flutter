@@ -1,4 +1,4 @@
-import 'package:dashboard/app/models/post_model.dart';
+import 'package:post/app/models/post_model.dart';
 import 'package:dio/dio.dart';
 
 class PostService {
