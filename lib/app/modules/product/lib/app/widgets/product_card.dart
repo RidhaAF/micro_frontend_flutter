@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:micro_frontend_flutter/app/modules/product/lib/app/widgets/product_image.dart';
+import 'package:micro_frontend_flutter/app/modules/product/lib/app/widgets/product_rating.dart';
 import 'package:micro_frontend_flutter/app/utils/constants/app_constants.dart';
 import 'package:product/app/models/product_model.dart';
 
@@ -12,20 +14,7 @@ class ProductCard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          ClipRRect(
-            borderRadius: const BorderRadius.only(
-              topLeft: Radius.circular(AppConstants.defaultRadius),
-              topRight: Radius.circular(AppConstants.defaultRadius),
-            ),
-            child: AspectRatio(
-              aspectRatio: 1 / 1,
-              child: Image.network(
-                product?.thumbnail ??
-                    'https://i.dummyjson.com/data/products/1/thumbnail.jpg',
-                fit: BoxFit.cover,
-              ),
-            ),
-          ),
+          _productImage(),
           const SizedBox(height: AppConstants.defaultMargin / 2),
           Padding(
             padding: const EdgeInsets.symmetric(
@@ -33,38 +22,41 @@ class ProductCard extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  product?.title ?? 'Title',
-                  overflow: TextOverflow.ellipsis,
-                  maxLines: 1,
-                ),
-                Text(
-                  '\$${product?.price.toString() ?? '0'}',
-                  style: const TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                Row(
-                  children: [
-                    Icon(
-                      Icons.star_rounded,
-                      color: Colors.yellow.shade600,
-                      size: 16,
-                    ),
-                    Text(
-                      product?.rating.toString() ?? '0.0',
-                      style: const TextStyle(
-                        color: Colors.black54,
-                        fontSize: 12,
-                      ),
-                    ),
-                  ],
-                ),
+                _productTitle(),
+                _productPrice(),
+                ProductRating(product: product),
               ],
             ),
           ),
         ],
+      ),
+    );
+  }
+
+  Widget _productImage() {
+    return ClipRRect(
+      borderRadius: const BorderRadius.only(
+        topLeft: Radius.circular(AppConstants.defaultRadius),
+        topRight: Radius.circular(AppConstants.defaultRadius),
+      ),
+      child: ProductImage(image: product?.thumbnail),
+    );
+  }
+
+  Widget _productTitle() {
+    return Text(
+      product?.title ?? 'Title',
+      overflow: TextOverflow.ellipsis,
+      maxLines: 1,
+    );
+  }
+
+  Widget _productPrice() {
+    return Text(
+      '\$${product?.price.toString() ?? '0'}',
+      style: const TextStyle(
+        fontSize: 18,
+        fontWeight: FontWeight.bold,
       ),
     );
   }

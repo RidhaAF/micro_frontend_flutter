@@ -19,7 +19,18 @@ class ProductGrid extends StatelessWidget {
       itemBuilder: (context, i) {
         final product = products?[i];
 
-        return ProductCard(product: product);
+        return InkWell(
+          onTap: () {
+            Navigator.pushNamed(
+              context,
+              '/products/:id',
+              arguments: product,
+            );
+          },
+          child: ProductCard(
+            product: product,
+          ),
+        );
       },
     );
   }

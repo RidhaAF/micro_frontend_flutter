@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:product/app/cubit/product/product_cubit.dart';
 import 'package:product/app/pages/product/product_page.dart';
+import 'package:product/app/routes/app_pages.dart';
 
 void main() {
   runApp(const ProductApp());
@@ -28,6 +29,7 @@ class ProductApp extends StatelessWidget {
           useMaterial3: true,
         ),
         home: const ProductPage(),
+        routes: AppPages.pages,
       ),
     );
   }
