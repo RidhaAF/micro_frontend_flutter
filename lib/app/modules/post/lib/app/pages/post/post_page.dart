@@ -73,7 +73,7 @@ class _PostPageState extends State<PostPage> {
       onTap: () {
         Navigator.pushNamed(
           context,
-          '/post/:id',
+          '/posts/:id',
           arguments: post,
         );
       },
