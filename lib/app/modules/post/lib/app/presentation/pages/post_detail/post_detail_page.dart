@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:post/app/models/post_model.dart';
-import 'package:post/app/widgets/post_list_tile.dart';
+import 'package:post/app/data/models/post_model.dart';
+import 'package:post/app/presentation/widgets/post_list_tile.dart';
 
 class PostDetailPage extends StatefulWidget {
   const PostDetailPage({super.key});

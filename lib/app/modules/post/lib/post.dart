@@ -2,24 +2,26 @@ library post;
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:post/app/cubit/post/post_cubit.dart';
-import 'package:post/app/pages/post/post_page.dart';
+import 'package:post/app/presentation/cubit/post/post_cubit.dart';
+import 'package:post/app/presentation/pages/post/post_page.dart';
 import 'package:post/app/routes/app_pages.dart';
-
-void main() {
-  runApp(const PostApp());
-}
+import 'package:post/injection.dart';
 
 class PostApp extends StatelessWidget {
-  const PostApp({super.key});
+  PostApp({super.key});
+
+  static PostApp create() {
+    setupInjection();
+    return PostApp();
+  }
+
+  final PostCubit postCubit = di<PostCubit>();
 
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider<PostCubit>(
-          create: (context) => PostCubit(),
-        ),
+        BlocProvider(create: (context) => postCubit),
       ],
       child: MaterialApp(
         title: 'Post',

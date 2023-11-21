@@ -7,7 +7,7 @@ import 'package:micro_frontend_flutter/app/routes/app_routes.dart';
 class AppPages {
   static final pages = {
     AppRoutes.initial: (context) => const MainApp(),
-    AppRoutes.post: (context) => const PostApp(),
+    AppRoutes.post: (context) => PostApp(),
     AppRoutes.product: (context) => const ProductApp(),
     AppRoutes.profile: (context) => const ProfileApp(),
   };

@@ -13,7 +13,7 @@ class MainApp extends StatefulWidget {
 class _MainAppState extends State<MainApp> {
   int _selectedIndex = 0;
   final List _pages = [
-    const PostApp(),
+    PostApp.create(),
     const ProductApp(),
     const ProfileApp(),
   ];

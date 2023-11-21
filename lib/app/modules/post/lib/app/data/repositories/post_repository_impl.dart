@@ -1,7 +1,9 @@
-import 'package:post/app/models/post_model.dart';
 import 'package:dio/dio.dart';
+import 'package:post/app/data/models/post_model.dart';
+import 'package:post/app/domain/repositories/post_repository.dart';
 
-class PostService {
+class PostRepositoryImpl extends PostRepository {
+  @override
   Future<List<PostModel>> getPosts() async {
     String url = 'https://jsonplaceholder.typicode.com/posts';
 

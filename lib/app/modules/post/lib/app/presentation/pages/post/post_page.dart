@@ -3,9 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:micro_frontend_flutter/app/presentation/widgets/default_loading_indicator.dart';
 import 'package:micro_frontend_flutter/app/presentation/widgets/default_refresh_indicator.dart';
 import 'package:micro_frontend_flutter/app/presentation/widgets/error_message.dart';
-import 'package:post/app/cubit/post/post_cubit.dart';
-import 'package:post/app/models/post_model.dart';
-import 'package:post/app/widgets/post_list_tile.dart';
+import 'package:post/app/data/models/post_model.dart';
+import 'package:post/app/presentation/cubit/post/post_cubit.dart';
+import 'package:post/app/presentation/widgets/post_list_tile.dart';
 
 class PostPage extends StatefulWidget {
   const PostPage({super.key});

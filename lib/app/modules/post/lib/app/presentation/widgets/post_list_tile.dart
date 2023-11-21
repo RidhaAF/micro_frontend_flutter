@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:micro_frontend_flutter/app/utils/constants/app_constants.dart';
-import 'package:post/app/models/post_model.dart';
+import 'package:post/app/data/models/post_model.dart';
 
 class PostListTile extends StatelessWidget {
   final PostModel post;
