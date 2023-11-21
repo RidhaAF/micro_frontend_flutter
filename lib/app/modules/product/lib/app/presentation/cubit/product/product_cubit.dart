@@ -8,19 +8,30 @@ part 'product_state.dart';
 class ProductCubit extends Cubit<ProductState> {
   final ProductUsecase _productUsecase;
   late ProductModel products;
+  bool _isClosed = false;
 
-  ProductCubit(this._productUsecase) : super(ProductInitial()) {
-    getProducts();
-  }
+  ProductCubit(this._productUsecase) : super(ProductInitial());
 
   Future<void> getProducts() async {
     try {
-      emit(ProductLoading());
-      products = await _productUsecase.getProducts();
-      emit(ProductLoaded(products));
+      if (!_isClosed) {
+        emit(ProductLoading());
+        products = await _productUsecase.getProducts();
+        if (!_isClosed) {
+          emit(ProductLoaded(products));
+        }
+      }
     } catch (e) {
-      emit(ProductError(e.toString()));
+      if (!_isClosed) {
+        emit(ProductError(e.toString()));
+      }
       throw Exception(e);
     }
+  }
+
+  @override
+  Future<void> close() {
+    _isClosed = true;
+    return super.close();
   }
 }

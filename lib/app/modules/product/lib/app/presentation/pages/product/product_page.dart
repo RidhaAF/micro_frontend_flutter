@@ -5,6 +5,7 @@ import 'package:micro_frontend_flutter/app/presentation/widgets/default_refresh_
 import 'package:micro_frontend_flutter/app/presentation/widgets/error_message.dart';
 import 'package:product/app/presentation/cubit/product/product_cubit.dart';
 import 'package:product/app/presentation/widgets/product_grid.dart';
+import 'package:product/injection.dart';
 
 class ProductPage extends StatefulWidget {
   const ProductPage({super.key});
@@ -14,12 +15,29 @@ class ProductPage extends StatefulWidget {
 }
 
 class _ProductPageState extends State<ProductPage> {
+  late ProductCubit _productCubit;
+
   void _getProducts() {
-    context.read<ProductCubit>().getProducts();
+    if (!_productCubit.isClosed) {
+      _productCubit.getProducts();
+    }
   }
 
   Future<void> _onRefresh() async {
     _getProducts();
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _productCubit = di<ProductCubit>();
+    _getProducts();
+  }
+
+  @override
+  void dispose() {
+    _productCubit.close();
+    super.dispose();
   }
 
   @override
@@ -36,6 +54,7 @@ class _ProductPageState extends State<ProductPage> {
     return DefaultRefreshIndicator(
       onRefresh: () => _onRefresh(),
       child: BlocBuilder<ProductCubit, ProductState>(
+        bloc: _productCubit,
         builder: (context, state) {
           if (state is ProductLoading) {
             return const DefaultLoadingIndicator();
