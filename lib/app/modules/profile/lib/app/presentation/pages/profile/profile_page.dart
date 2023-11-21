@@ -6,6 +6,7 @@ import 'package:micro_frontend_flutter/app/presentation/widgets/error_message.da
 import 'package:micro_frontend_flutter/app/utils/constants/app_constants.dart';
 import 'package:profile/app/data/models/profile_model.dart';
 import 'package:profile/app/presentation/cubit/profile/profile_cubit.dart';
+import 'package:profile/injection.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -15,12 +16,29 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
-  void _getProfile() {
-    context.read<ProfileCubit>().getProfile();
+  late ProfileCubit _profileCubit;
+
+  Future<void> _getProfile() async {
+    if (!_profileCubit.isClosed) {
+      await _profileCubit.getProfile();
+    }
   }
 
-  _onRefresh() async {
+  Future<void> _onRefresh() async {
     _getProfile();
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _profileCubit = di<ProfileCubit>();
+    _getProfile();
+  }
+
+  @override
+  void dispose() {
+    _profileCubit.close();
+    super.dispose();
   }
 
   @override
@@ -42,6 +60,7 @@ class _ProfilePageState extends State<ProfilePage> {
 
   Widget _profileListView() {
     return BlocBuilder<ProfileCubit, ProfileState>(
+      bloc: _profileCubit,
       builder: (context, state) {
         if (state is ProfileLoading) {
           return const DefaultLoadingIndicator();

@@ -8,19 +8,30 @@ part 'profile_state.dart';
 class ProfileCubit extends Cubit<ProfileState> {
   final ProfileUsecase _profileUsecase;
   late ProfileModel profile;
+  bool _isClosed = false;
 
-  ProfileCubit(this._profileUsecase) : super(ProfileInitial()) {
-    getProfile();
-  }
+  ProfileCubit(this._profileUsecase) : super(ProfileInitial());
 
-  void getProfile() async {
+  Future<void> getProfile() async {
     try {
-      emit(ProfileLoading());
-      profile = await _profileUsecase.getProfile();
-      emit(ProfileLoaded(profile));
+      if (!_isClosed) {
+        emit(ProfileLoading());
+        profile = await _profileUsecase.getProfile();
+        if (!_isClosed) {
+          emit(ProfileLoaded(profile));
+        }
+      }
     } catch (e) {
-      emit(ProfileError(e.toString()));
+      if (!_isClosed) {
+        emit(ProfileError(e.toString()));
+      }
       throw Exception(e);
     }
+  }
+
+  @override
+  Future<void> close() {
+    _isClosed = true;
+    return super.close();
   }
 }
