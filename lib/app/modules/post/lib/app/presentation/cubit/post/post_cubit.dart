@@ -8,19 +8,30 @@ part 'post_state.dart';
 class PostCubit extends Cubit<PostState> {
   final PostUsecase _postUsecase;
   late List<PostModel> posts;
+  bool _isClosed = false;
 
-  PostCubit(this._postUsecase) : super(PostInitial()) {
-    getPosts();
-  }
+  PostCubit(this._postUsecase) : super(PostInitial());
 
   Future<void> getPosts() async {
     try {
-      emit(PostLoading());
-      posts = await _postUsecase.getPosts();
-      emit(PostLoaded(posts));
+      if (!_isClosed) {
+        emit(PostLoading());
+        posts = await _postUsecase.getPosts();
+        if (!_isClosed) {
+          emit(PostLoaded(posts));
+        }
+      }
     } catch (e) {
-      emit(PostError(e.toString()));
+      if (!_isClosed) {
+        emit(PostError(e.toString()));
+      }
       throw Exception(e);
     }
+  }
+
+  @override
+  Future<void> close() {
+    _isClosed = true;
+    return super.close();
   }
 }

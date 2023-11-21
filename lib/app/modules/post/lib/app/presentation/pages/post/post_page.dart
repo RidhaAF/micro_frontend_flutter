@@ -6,6 +6,7 @@ import 'package:micro_frontend_flutter/app/presentation/widgets/error_message.da
 import 'package:post/app/data/models/post_model.dart';
 import 'package:post/app/presentation/cubit/post/post_cubit.dart';
 import 'package:post/app/presentation/widgets/post_list_tile.dart';
+import 'package:post/injection.dart';
 
 class PostPage extends StatefulWidget {
   const PostPage({super.key});
@@ -15,12 +16,29 @@ class PostPage extends StatefulWidget {
 }
 
 class _PostPageState extends State<PostPage> {
+  late PostCubit _postCubit;
+
   void _getPosts() {
-    context.read<PostCubit>().getPosts();
+    if (!_postCubit.isClosed) {
+      _postCubit.getPosts();
+    }
   }
 
-  _onRefresh() async {
+  Future<void> _onRefresh() async {
     _getPosts();
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _postCubit = di<PostCubit>();
+    _getPosts();
+  }
+
+  @override
+  void dispose() {
+    _postCubit.close();
+    super.dispose();
   }
 
   @override
@@ -37,6 +55,7 @@ class _PostPageState extends State<PostPage> {
     return DefaultRefreshIndicator(
       onRefresh: () => _onRefresh(),
       child: BlocBuilder<PostCubit, PostState>(
+        bloc: _postCubit,
         builder: (context, state) {
           if (state is PostLoading) {
             return const DefaultLoadingIndicator();
