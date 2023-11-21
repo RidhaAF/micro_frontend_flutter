@@ -15,7 +15,7 @@ class _MainAppState extends State<MainApp> {
   final List _pages = [
     PostApp.create(),
     ProductApp.create(),
-    const ProfileApp(),
+    ProfileApp.create(),
   ];
 
   @override

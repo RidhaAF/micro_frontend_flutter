@@ -1,7 +1,9 @@
 import 'package:dio/dio.dart';
-import 'package:profile/app/models/profile_model.dart';
+import 'package:profile/app/data/models/profile_model.dart';
+import 'package:profile/app/domain/repositories/profile_repository.dart';
 
-class ProfileService {
+class ProfileRepositoryImpl extends ProfileRepository {
+  @override
   Future<ProfileModel> getProfile() async {
     String url = 'https://randomuser.me/api/';
 

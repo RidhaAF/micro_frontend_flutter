@@ -9,6 +9,6 @@ class AppPages {
     AppRoutes.initial: (context) => const MainApp(),
     AppRoutes.post: (context) => PostApp(),
     AppRoutes.product: (context) => ProductApp(),
-    AppRoutes.profile: (context) => const ProfileApp(),
+    AppRoutes.profile: (context) => ProfileApp(),
   };
 }

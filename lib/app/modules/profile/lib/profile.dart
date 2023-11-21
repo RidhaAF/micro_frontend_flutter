@@ -2,22 +2,26 @@ library profile;
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:profile/app/cubit/profile/profile_cubit.dart';
-import 'package:profile/app/pages/profile/profile_page.dart';
-
-void main() {
-  runApp(const ProfileApp());
-}
+import 'package:profile/app/presentation/cubit/profile/profile_cubit.dart';
+import 'package:profile/app/presentation/pages/profile/profile_page.dart';
+import 'package:profile/injection.dart';
 
 class ProfileApp extends StatelessWidget {
-  const ProfileApp({super.key});
+  ProfileApp({super.key});
+
+  static ProfileApp create() {
+    setupInjection();
+    return ProfileApp();
+  }
+
+  final ProfileCubit profileCubit = di<ProfileCubit>();
 
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
         BlocProvider<ProfileCubit>(
-          create: (context) => ProfileCubit(),
+          create: (context) => profileCubit,
         ),
       ],
       child: MaterialApp(
