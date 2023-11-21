@@ -6,6 +6,9 @@ import 'package:micro_frontend_flutter/app/presentation/widgets/error_message.da
 import 'package:micro_frontend_flutter/app/utils/constants/app_constants.dart';
 import 'package:profile/app/data/models/profile_model.dart';
 import 'package:profile/app/presentation/cubit/profile/profile_cubit.dart';
+import 'package:profile/app/presentation/widgets/profile_email.dart';
+import 'package:profile/app/presentation/widgets/profile_name.dart';
+import 'package:profile/app/presentation/widgets/profile_photo.dart';
 import 'package:profile/injection.dart';
 
 class ProfilePage extends StatefulWidget {
@@ -73,10 +76,10 @@ class _ProfilePageState extends State<ProfilePage> {
           return ListView(
             padding: const EdgeInsets.all(AppConstants.defaultMargin),
             children: [
-              _profilePhoto(picture!),
+              ProfilePhoto(picture: picture!),
               const SizedBox(height: AppConstants.defaultMargin),
-              _profileName(name!),
-              _profileEmail(email!),
+              ProfileName(name: name!),
+              ProfileEmail(email: email!),
             ],
           );
         } else if (state is ProfileError) {
@@ -85,43 +88,6 @@ class _ProfilePageState extends State<ProfilePage> {
           return const SizedBox();
         }
       },
-    );
-  }
-
-  Widget _profilePhoto(Picture picture) {
-    return Container(
-      width: 120,
-      height: 120,
-      decoration: BoxDecoration(
-        color: Colors.grey,
-        shape: BoxShape.circle,
-        image: DecorationImage(
-          image: NetworkImage(picture.large!),
-        ),
-      ),
-    );
-  }
-
-  Widget _profileName(Name name) {
-    String fullname = '${name.first} ${name.last}';
-
-    return Text(
-      fullname,
-      style: const TextStyle(
-        fontSize: 20,
-        fontWeight: AppConstants.bold,
-      ),
-      textAlign: TextAlign.center,
-    );
-  }
-
-  Widget _profileEmail(String email) {
-    return Text(
-      email,
-      style: const TextStyle(
-        color: Colors.grey,
-      ),
-      textAlign: TextAlign.center,
     );
   }
 }
