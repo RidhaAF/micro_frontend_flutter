@@ -1,7 +1,9 @@
 import 'package:dio/dio.dart';
-import 'package:product/app/models/product_model.dart';
+import 'package:product/app/data/models/product_model.dart';
+import 'package:product/app/domain/repositories/product_repository.dart';
 
-class ProductService {
+class ProductRepositoryImpl extends ProductRepository {
+  @override
   Future<ProductModel> getProducts() async {
     String url = 'https://dummyjson.com/products';
 

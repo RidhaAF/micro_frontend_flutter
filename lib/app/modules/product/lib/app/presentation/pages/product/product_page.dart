@@ -3,8 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:micro_frontend_flutter/app/presentation/widgets/default_loading_indicator.dart';
 import 'package:micro_frontend_flutter/app/presentation/widgets/default_refresh_indicator.dart';
 import 'package:micro_frontend_flutter/app/presentation/widgets/error_message.dart';
-import 'package:product/app/cubit/product/product_cubit.dart';
-import 'package:product/app/widgets/product_grid.dart';
+import 'package:product/app/presentation/cubit/product/product_cubit.dart';
+import 'package:product/app/presentation/widgets/product_grid.dart';
 
 class ProductPage extends StatefulWidget {
   const ProductPage({super.key});

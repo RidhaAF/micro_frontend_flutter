@@ -8,7 +8,7 @@ class AppPages {
   static final pages = {
     AppRoutes.initial: (context) => const MainApp(),
     AppRoutes.post: (context) => PostApp(),
-    AppRoutes.product: (context) => const ProductApp(),
+    AppRoutes.product: (context) => ProductApp(),
     AppRoutes.profile: (context) => const ProfileApp(),
   };
 }

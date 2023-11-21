@@ -1,9 +1,9 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:micro_frontend_flutter/app/utils/constants/app_constants.dart';
-import 'package:product/app/models/product_model.dart';
-import 'package:product/app/widgets/product_image.dart';
-import 'package:product/app/widgets/product_rating.dart';
+import 'package:product/app/data/models/product_model.dart';
+import 'package:product/app/presentation/widgets/product_image.dart';
+import 'package:product/app/presentation/widgets/product_rating.dart';
 
 class ProductDetailPage extends StatefulWidget {
   const ProductDetailPage({super.key});
