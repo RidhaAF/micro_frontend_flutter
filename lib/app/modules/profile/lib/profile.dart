@@ -3,7 +3,7 @@ library profile;
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:profile/app/cubit/profile/profile_cubit.dart';
-import 'package:profile/app/pages/profile_page.dart';
+import 'package:profile/app/pages/profile/profile_page.dart';
 
 void main() {
   runApp(const ProfileApp());

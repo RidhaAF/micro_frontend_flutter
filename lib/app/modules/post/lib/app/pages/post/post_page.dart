@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:micro_frontend_flutter/app/widgets/default_loading_indicator.dart';
-import 'package:micro_frontend_flutter/app/widgets/default_refresh_indicator.dart';
-import 'package:micro_frontend_flutter/app/widgets/error_message.dart';
+import 'package:micro_frontend_flutter/app/presentation/widgets/default_loading_indicator.dart';
+import 'package:micro_frontend_flutter/app/presentation/widgets/default_refresh_indicator.dart';
+import 'package:micro_frontend_flutter/app/presentation/widgets/error_message.dart';
 import 'package:post/app/cubit/post/post_cubit.dart';
 import 'package:post/app/models/post_model.dart';
 import 'package:post/app/widgets/post_list_tile.dart';

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:micro_frontend_flutter/app/presentation/widgets/default_loading_indicator.dart';
+import 'package:micro_frontend_flutter/app/presentation/widgets/default_refresh_indicator.dart';
+import 'package:micro_frontend_flutter/app/presentation/widgets/error_message.dart';
+import 'package:micro_frontend_flutter/app/utils/constants/app_constants.dart';
 import 'package:profile/app/cubit/profile/profile_cubit.dart';
 import 'package:profile/app/models/profile_model.dart';
-import 'package:micro_frontend_flutter/app/utils/constants/app_constants.dart';
-import 'package:micro_frontend_flutter/app/widgets/default_loading_indicator.dart';
-import 'package:micro_frontend_flutter/app/widgets/default_refresh_indicator.dart';
-import 'package:micro_frontend_flutter/app/widgets/error_message.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
